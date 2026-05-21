@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AromaCode - Luxury Perfume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #120e0c;
+            color: #e5e1dc;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #120e0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3a3028;
+            border-radius: 4px;
+        }
+        .active-sidebar {
+            background-color: #e5b842 !important;
+            color: #120e0c !important;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <nav class="w-full py-5 px-8 md:px-20 flex justify-between items-center bg-[#120e0c]/95 border-b border-[#2d241e] sticky top-0 z-50">
+        <div class="text-2xl font-serif tracking-widest text-white cursor-pointer" onclick="showLandingPage()">AromaCode</div>
+        <div class="hidden md:flex space-x-10 text-xs font-semibold tracking-widest uppercase text-gray-300">
+            <a href="javascript:void(0)" onclick="showLandingPage()" class="hover:text-[#e5b842] transition">HOME</a>
+            <a href="javascript:void(0)" onclick="navigateToCategoryPage('aromatic')" class="hover:text-[#e5b842] transition">CATEGORIES</a>
+            <a href="#onsale" onclick="showLandingPage()" class="hover:text-[#e5b842] transition">COLLECTIONS</a>
+            <a href="#blog" onclick="showLandingPage()" class="hover:text-[#e5b842] transition">BLOG</a>
+        </div>
+        <div class="flex items-center space-x-6">
+            <button onclick="openCart()" class="text-gray-300 hover:text-[#e5b842] relative w-10 h-10 flex items-center justify-center focus:outline-none bg-[#1c1612] rounded-full border border-[#2d241e]" title="Buka Keranjang">
+                <i class="fa-solid fa-cart-shopping text-base"></i>
+                <span id="cart-badge" class="absolute -top-1 -right-1 bg-[#e5b842] text-[#120e0c] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden shadow-md animate-bounce">0</span>
+            </button>
+            <button class="border border-[#3a3028] px-4 py-2 text-[11px] font-bold tracking-widest uppercase text-[#e5b842] hover:bg-[#e5b842] hover:text-[#120e0c] transition rounded">CONTACT</button>
+        </div>
+    </nav>
+
+    <div id="landing-page-view">
+        <section id="home" class="relative h-[70vh] md:h-[85vh] flex items-center justify-start bg-cover bg-center px-8 md:px-20" style="background-image: linear-gradient(to right, rgba(18,14,12,0.95) 30%, rgba(18,14,12,0.3) 100%), url('assets/header-\ bg.jpeg');">
+            <div class="max-w-xl space-y-4">
+                <h1 class="text-4xl md:text-6xl font-serif tracking-wide text-white leading-tight">AromaCode</h1>
+                <p class="text-xs md:text-sm text-gray-400 font-light leading-relaxed tracking-wide">
+                    Discover the art of luxury perfumery. Crafted with the finest ingredients from around the world to create a signature scent that lingers elegantly in every memory.
+                </p>
+                <a href="#onsale" class="inline-block mt-4 px-6 py-2 bg-transparent border border-[#e5b842] text-[#e5b842] text-xs tracking-widest uppercase hover:bg-[#e5b842] hover:text-[#120e0c] transition duration-300 text-center">
+                    Shop Now
+                </a>
+            </div>
+        </section>
+
+        <section id="category" class="py-16 px-8 md:px-20 bg-[#17120f]">
+            <h2 class="text-3xl font-serif mb-8 tracking-wide italic text-white">Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div onclick="navigateToCategoryPage('vanilla')" class="relative h-40 bg-cover bg-center group overflow-hidden cursor-pointer flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/catyegory-\ vanilla.jpeg');">
+                    <span class="font-serif tracking-widest text-lg text-white group-hover:scale-110 transition duration-300">VANILLA</span>
+                </div>
+                <div onclick="navigateToCategoryPage('wood')" class="relative h-40 bg-cover bg-center group overflow-hidden cursor-pointer flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/catyegory-\ wood.jpeg');">
+                    <span class="font-serif tracking-widest text-lg text-white group-hover:scale-110 transition duration-300">WOODY</span>
+                </div>
+                <div onclick="navigateToCategoryPage('aquatic')" class="relative h-40 bg-cover bg-center group overflow-hidden cursor-pointer flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/catyegory-\ aquatic.jpeg');">
+                    <span class="font-serif tracking-widest text-lg text-white group-hover:scale-110 transition duration-300">AQUATIC</span>
+                </div>
+                <div onclick="navigateToCategoryPage('aromatic')" class="relative h-40 bg-cover bg-center group overflow-hidden cursor-pointer flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/catyegory-Aromatic.jpeg');">
+                    <span class="font-serif tracking-widest text-lg text-white group-hover:scale-110 transition duration-300">AROMATIC</span>
+                </div>
+                <div onclick="navigateToCategoryPage('floral')" class="relative h-40 bg-cover bg-center group overflow-hidden cursor-pointer flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/catyegory-\ floral.jpeg');">
+                    <span class="font-serif tracking-widest text-lg text-white group-hover:scale-110 transition duration-300">FLORAL</span>
+                </div>
+                <div onclick="navigateToCategoryPage('fruit')" class="relative h-40 bg-cover bg-center group overflow-hidden cursor-pointer flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/catyegory-\ fruits.jpeg');">
+                    <span class="font-serif tracking-widest text-lg text-white group-hover:scale-110 transition duration-300">FRUITS</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="onsale" class="py-16 px-8 md:px-20 bg-[#120e0c]">
+            <h2 class="text-3xl font-serif tracking-wide italic text-white mb-8">On sale</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div onclick="showDirectProductDetail('w1')" class="bg-[#1c1612] p-4 text-center group cursor-pointer border border-transparent hover:border-[#3a3028] transition rounded">
+                    <div class="h-64 bg-white mb-4 flex items-center justify-center overflow-hidden rounded">
+                        <img src="assets/on sale- lily ethereal.jpeg" class="h-48 object-contain group-hover:scale-105 transition duration-300">
+                    </div>
+                    <h3 class="text-sm tracking-wide text-gray-200">AromaCode Blue Diamond</h3>
+                    <p class="text-xs text-gray-400 mt-1">Eau De Parfum 100ml</p>
+                    <p class="text-sm font-semibold text-[#e5b842] mt-2">Rp 280.000 <span class="text-xs text-gray-500 line-through ml-2">Rp 350.000</span></p>
+                </div>
+                <div onclick="showDirectProductDetail('fl2')" class="bg-[#1c1612] p-4 text-center group cursor-pointer border border-transparent hover:border-[#3a3028] transition rounded">
+                    <div class="h-64 bg-white mb-4 flex items-center justify-center overflow-hidden rounded">
+                        <img src="assets/for woman- bg 2.jpeg" class="h-48 object-contain group-hover:scale-105 transition duration-300">
+                    </div>
+                    <h3 class="text-sm tracking-wide text-gray-200">AromaCode Rose Quartz</h3>
+                    <p class="text-xs text-gray-400 mt-1">Eau De Parfum 100ml</p>
+                    <p class="text-sm font-semibold text-[#e5b842] mt-2">Rp 390.000 <span class="text-xs text-gray-500 line-through ml-2">Rp 480.000</span></p>
+                </div>
+                <div onclick="showDirectProductDetail('ar3')" class="bg-[#1c1612] p-4 text-center group cursor-pointer border border-transparent hover:border-[#3a3028] transition rounded">
+                    <div class="h-64 bg-white mb-4 flex items-center justify-center overflow-hidden rounded">
+                        <img src="assets/on sale-midnight noir.jpeg" class="h-48 object-contain group-hover:scale-105 transition duration-300">
+                    </div>
+                    <h3 class="text-sm tracking-wide text-gray-200">AromaCode Midnight Noir</h3>
+                    <p class="text-xs text-gray-400 mt-1">Eau De Parfum 50ml</p>
+                    <p class="text-sm font-semibold text-[#e5b842] mt-2">Rp 420.000 <span class="text-xs text-gray-500 line-through ml-2">Rp 520.000</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative h-[45vh] bg-cover bg-center flex items-center justify-center" style="background-image: linear-gradient(rgba(18,14,12,0.6), rgba(18,14,12,0.6)), url('assets/see\ details-\ bg.jpeg');">
+            <button onclick="navigateToCategoryPage('aromatic')" class="px-8 py-3 bg-[#120e0c]/80 border border-[#e5b842] text-[#e5b842] text-xs tracking-widest uppercase hover:bg-[#e5b842] hover:text-[#120e0c] transition duration-300">
+                See Details <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+            </button>
+        </section>
+
+        <section id="women" class="py-16 px-8 md:px-20 bg-[#120e0c]">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <div class="relative bg-cover bg-center p-8 flex flex-col justify-end min-h-[350px]" style="background-image: linear-gradient(to top, rgba(18,14,12,0.95), rgba(0,0,0,0.1)), url('assets/for\ woman-\ bg.jpeg');">
+                    <h3 class="text-3xl font-serif text-white mb-2 italic">For Women</h3>
+                    <a href="javascript:void(0)" onclick="navigateToCategoryPage('floral')" class="text-xs text-[#e5b842] tracking-widest uppercase underline underline-offset-4">Explore Collection</a>
+                </div>
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div onclick="showDirectProductDetail('fl1')" class="bg-[#1c1612] p-4 flex flex-col justify-between cursor-pointer border border-transparent hover:border-[#3a3028] rounded">
+                        <div class="bg-white p-4 flex justify-center rounded"><img src="assets/for woman- bg 1.jpeg" class="h-40 object-contain"></div>
+                        <div class="mt-4">
+                            <span class="text-[10px] bg-[#e5b842] text-[#120e0c] px-2 py-0.5 font-bold">BEST SELLER</span>
+                            <h4 class="text-sm mt-2 text-gray-200">Jasmine Infusion Elite</h4>
+                            <p class="text-xs text-[#e5b842] mt-1">Rp 360.000</p>
+                        </div>
+                    </div>
+                    <div onclick="showDirectProductDetail('fl2')" class="bg-[#1c1612] p-4 flex flex-col justify-between cursor-pointer border border-transparent hover:border-[#3a3028] rounded">
+                        <div class="bg-white p-4 flex justify-center rounded"><img src="assets/for woman- bg 2.jpeg" class="h-40 object-contain"></div>
+                        <div class="mt-4">
+                            <span class="text-[10px] bg-[#e5b842] text-[#120e0c] px-2 py-0.5 font-bold">NEW ARRIVAL</span>
+                            <h4 class="text-sm mt-2 text-gray-200">Rose Goddess Quartz</h4>
+                            <p class="text-xs text-[#e5b842] mt-1">Rp 390.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="men" class="py-16 px-8 md:px-20 bg-[#17120f]">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <div class="relative bg-cover bg-center p-8 flex flex-col justify-end min-h-[350px] lg:order-last" style="background-image: linear-gradient(to top, rgba(18,14,12,0.95), rgba(0,0,0,0.1)), url('assets/for\ man-\ bg.jpeg');">
+                    <h3 class="text-3xl font-serif text-white mb-2 italic">For Men</h3>
+                    <a href="javascript:void(0)" onclick="navigateToCategoryPage('wood')" class="text-xs text-[#e5b842] tracking-widest uppercase underline underline-offset-4">Explore Collection</a>
+                </div>
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div onclick="showDirectProductDetail('ar1')" class="bg-[#1c1612] p-4 flex flex-col justify-between cursor-pointer border border-transparent hover:border-[#3a3028] rounded">
+                        <div class="bg-white p-4 flex justify-center rounded"><img src="assets/for man- bg 1.jpeg" class="h-40 object-contain"></div>
+                        <div class="mt-4">
+                            <span class="text-[10px] bg-gray-600 text-white px-2 py-0.5 font-bold">POPULAR</span>
+                            <h4 class="text-sm mt-2 text-gray-200">Spice Route (Aromatic)</h4>
+                            <p class="text-xs text-[#e5b842] mt-1">Rp 280.000</p>
+                        </div>
+                    </div>
+                    <div onclick="showDirectProductDetail('w3')" class="bg-[#1c1612] p-4 flex flex-col justify-between cursor-pointer border border-transparent hover:border-[#3a3028] rounded">
+                        <div class="bg-white p-4 flex justify-center rounded"><img src="assets/for man- bg 2.jpeg" class="h-40 object-contain"></div>
+                        <div class="mt-4">
+                            <span class="text-[10px] bg-[#e5b842] text-[#120e0c] px-2 py-0.5 font-bold">LIMITED</span>
+                            <h4 class="text-sm mt-2 text-gray-200">Oud Majestic</h4>
+                            <p class="text-xs text-[#e5b842] mt-1">Rp 490.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="py-16 px-8 md:px-20 bg-[#120e0c]">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div class="space-y-2">
+                    <h2 class="text-4xl font-serif tracking-wide text-white">Blog and Article</h2>
+                    <div class="w-20 h-[1px] bg-[#e5b842]"></div>
+                </div>
+                <p class="text-xs text-gray-400 font-light max-w-xs tracking-wide">
+                    Explore inside information regarding the formulation, layer rules, and lifestyle behind our creations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col space-y-4">
+                    <div class="overflow-hidden rounded-2xl border border-[#2d241e] aspect-square bg-[#1c1612]">
+                        <img src="assets/Blog-foto1.jpeg" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-base font-serif tracking-wide text-white font-medium line-clamp-1">The Secret Behind Your Perfume</h3>
+                        <p class="text-xs text-gray-400 line-clamp-2 font-light leading-relaxed">Understanding ingredients, raw essential oil materials, and how specific notes build long lasting chemistry.</p>
+                        <button onclick="openBlogModal('The Secret Behind Your Perfume', 'Memilih parfum bukan sekadar mencium aroma dari kertas uji. Kulit Anda memiliki tingkat keasaman (pH) unik yang memengaruhi hasil akhir aroma. Pelajari bagaimana Top Notes bertahan 15 menit pertama, Middle Notes selama 4 jam berikutnya, dan Base Notes yang mengunci aroma sepanjang hari.')" class="w-full md:w-auto px-6 py-2.5 border border-gray-600 hover:border-[#e5b842] text-xs font-light text-gray-300 hover:text-[#e5b842] rounded-full transition duration-300 flex items-center justify-center gap-2">
+                            See Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-4">
+                    <div class="overflow-hidden rounded-2xl border border-[#2d241e] aspect-square bg-[#1c1612]">
+                        <img src="assets/Blog-foto2.jpeg" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-base font-serif tracking-wide text-white font-medium line-clamp-1">How To Apply Successfully?</h3>
+                        <p class="text-xs text-gray-400 line-clamp-2 font-light leading-relaxed">Maximize longevity by misting on strategic pulse points: wrist, neck, behind your ears, and fabric lines.</p>
+                        <button onclick="openBlogModal('How To Apply Successfully?', 'Untuk hasil sebaran silase maksimal, semprotkan cairan wewangian tepat setelah mandi saat pori-pori kulit terbuka. Fokuskan di titik nadi hangat tubuh seperti pergelangan tangan dalam, lekukan leher bawah telinga, serta sedikit di area pakaian katun.')" class="w-full md:w-auto px-6 py-2.5 border border-gray-600 hover:border-[#e5b842] text-xs font-light text-gray-300 hover:text-[#e5b842] rounded-full transition duration-300 flex items-center justify-center gap-2">
+                            See Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-4">
+                    <div class="overflow-hidden rounded-2xl border border-[#2d241e] aspect-square bg-[#1c1612]">
+                        <img src="assets/Blog-foto3.jpeg" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-base font-serif tracking-wide text-white font-medium line-clamp-1">Care & Storage Guidance</h3>
+                        <p class="text-xs text-gray-400 line-clamp-2 font-light leading-relaxed">Keep your collection safe from hot direct sunlight oxidation and fluctuating humidities to preserve raw formulas.</p>
+                        <button onclick="openBlogModal('Care & Storage Guidance', 'Molekul parfum sangat sensitif terhadap suhu ekstrem dan paparan UV langsung. Simpan botol kaca mewah Anda di dalam kotak aslinya atau di lemari sejuk kering dengan suhu stabil untuk mencegah perubahan warna maupun degradasi bau aslinya.')" class="w-full md:w-auto px-6 py-2.5 border border-gray-600 hover:border-[#e5b842] text-xs font-light text-gray-300 hover:text-[#e5b842] rounded-full transition duration-300 flex items-center justify-center gap-2">
+                            See Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="category-page-view" class="hidden min-h-screen py-10 px-8 md:px-20 bg-[#120e0c]">
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+            
+            <div class="w-full md:w-64 sticky top-28">
+                <div class="bg-transparent border border-[#2d241e] p-6 rounded-2xl">
+                    <h3 class="text-[#e5b842] font-serif tracking-widest text-lg font-medium mb-6">Kategori</h3>
+                    <div class="flex flex-col space-y-3" id="sidebar-buttons-container">
+                        </div>
+                </div>
+            </div>
+
+            <div class="flex-1 w-full">
+                
+                <div id="product-grid-subview">
+                    <p id="product-count-text" class="text-sm text-gray-500 mb-8 font-light">0 produk ditemukan</p>
+                    <div id="category-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        </div>
+                </div>
+
+                <div id="product-detail-subview" class="hidden">
+                    <div class="flex flex-col lg:flex-row gap-12 items-start">
+                        <div class="w-full lg:w-1/2 bg-[#3c3935] p-10 rounded-[2.5rem] relative flex items-center justify-center min-h-[450px]">
+                            <div id="detail-bestseller-tag" class="absolute top-8 right-8 bg-[#e5b842] text-[#120e0c] text-[11px] font-bold tracking-widest px-4 py-2 rounded-xl flex items-center gap-1 shadow-lg">
+                                <i class="fa-solid fa-sparkles text-[10px]"></i> Best Seller
+                            </div>
+                            <img id="detail-image" src="" class="w-full h-[380px] object-contain drop-shadow-2xl">
+                        </div>
+                        
+                        <div class="w-full lg:w-1/2 space-y-6 lg:pt-4">
+                            <div class="flex items-center space-x-3">
+                                <span id="detail-category-tag" class="bg-[#e5b842] text-[#120e0c] text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full uppercase">AROMATIC</span>
+                            </div>
+                            <h2 id="detail-name" class="text-5xl font-serif font-semibold text-[#e5b842]">Product Name</h2>
+                            <div class="flex items-center space-x-2 text-[#e5b842]">
+                                <div class="flex text-xs space-x-0.5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <span class="text-gray-400 text-sm ml-2">4.7</span>
+                            </div>
+                            <p id="detail-price" class="text-4xl font-bold text-[#e5b842]">Rp 0</p>
+                            <p class="text-sm text-gray-400 font-light">Gender: <span id="detail-gender" class="text-white font-normal">Unisex</span></p>
+                            
+                            <div class="pt-4">
+                                <h4 class="text-xl font-serif text-[#e5b842] mb-3">Deskripsi</h4>
+                                <p id="detail-description" class="text-sm text-gray-300 leading-relaxed font-light tracking-wide"></p>
+                            </div>
+
+                            <div class="pt-8 flex gap-4">
+                                <button onclick="addCurrentDetailToCart()" class="flex-1 bg-[#e5b842] hover:bg-white text-[#120e0c] py-4 rounded-xl font-bold text-xs tracking-widest uppercase transition flex items-center justify-center gap-3 shadow-lg shadow-[#e5b842]/10">
+                                    <i class="fa-solid fa-cart-shopping"></i> Tambah ke Keranjang
+                                </button>
+                                <button class="w-14 h-14 border border-[#e5b842]/30 hover:border-[#e5b842] text-[#e5b842] rounded-xl transition flex items-center justify-center" title="Tambah ke Wishlist">
+                                    <i class="fa-regular fa-heart text-lg"></i>
+                                </button>
+                                <button onclick="backToGrid()" class="px-5 border border-[#3a3028] text-gray-400 hover:text-white rounded-xl transition flex items-center justify-center" title="Kembali">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="relative bg-cover bg-center border-t border-[#2d241e] pt-20 overflow-hidden" style="background-image: linear-gradient(to top, rgba(11,8,7,0.98) 50%, rgba(18,14,12,0.85) 100%), url('assets/footer-\ bg.jpeg');">
+        
+        <div class="max-w-7xl mx-auto px-8 md:px-20 text-center pb-12 border-b border-[#2d241e]/50">
+            <div class="flex justify-center space-x-10 text-2xl text-white mb-6">
+                <a href="#" class="hover:text-[#e5b842] transition"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-[#e5b842] transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-[#e5b842] transition"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="hover:text-[#e5b842] transition"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="hover:text-[#e5b842] transition"><i class="fa-brands fa-pinterest-p"></i></a>
+            </div>
+            <p class="text-xs md:text-sm text-gray-400 font-light max-w-xl mx-auto tracking-wide leading-relaxed">
+                With Every AromaCode Purchase, Enjoy a Complimentary Perfume Tester Crafted to Elevate Your Scent Journey.
+            </p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-8 md:px-20 py-16 grid grid-cols-1 md:grid-cols-4 gap-10 text-left">
+            <div class="space-y-4">
+                <h3 class="text-3xl font-serif tracking-widest text-white">AromaCode</h3>
+                <p class="text-xs text-gray-400 font-light leading-relaxed">
+                    The essence of luxury captured in a bottle. Discover your signature scent from our exclusive collections.
+                </p>
+                <div class="flex space-x-3 pt-2">
+                    <a href="#" class="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-xs text-gray-400 hover:text-white hover:border-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-xs text-gray-400 hover:text-white hover:border-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-xs text-gray-400 hover:text-white hover:border-white transition"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold tracking-wider text-[#e5b842] uppercase flex items-center gap-1"><i class="fa-solid fa-sparkles text-[10px]"></i> Explore</h4>
+                <ul class="space-y-2 text-xs text-gray-400 font-light">
+                    <li><a href="#" class="hover:text-white transition">New Arrivals</a></li>
+                    <li><a href="#" class="hover:text-white transition">Best Sellers</a></li>
+                    <li><a href="#" class="hover:text-white transition">Collections</a></li>
+                    <li><a href="#" class="hover:text-white transition">Journal & Notes</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold tracking-wider text-[#e5b842] uppercase flex items-center gap-1"><i class="fa-solid fa-sparkles text-[10px]"></i> Support</h4>
+                <ul class="space-y-2 text-xs text-gray-400 font-light">
+                    <li><a href="#" class="hover:text-white transition">Client Services</a></li>
+                    <li><a href="#" class="hover:text-white transition">Shipping & Returns</a></li>
+                    <li><a href="#" class="hover:text-white transition">Fragrance Guide</a></li>
+                    <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold tracking-wider text-[#e5b842] uppercase flex items-center gap-1"><i class="fa-solid fa-sparkles text-[10px]"></i> Atelier</h4>
+                <ul class="space-y-3 text-xs text-gray-400 font-light">
+                    <li class="flex items-start gap-2">
+                        <i class="fa-solid fa-location-dot text-[#e5b842] mt-0.5"></i>
+                        <span>123 Luxury Avenue<br>Jakarta Selatan, 12190<br>Indonesia</span>
+                    </li>
+                    <li class="flex items-center gap-2 pt-1">
+                        <i class="fa-solid fa-envelope text-[#e5b842]"></i>
+                        <a href="mailto:concierge@aromacode.com" class="hover:text-white transition">concierge@aromacode.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bg-[#0b0807]/90 py-6 px-8 md:px-20 border-t border-[#2d241e]/30">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-light">
+                <p>© 2026 AromaCode. All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-gray-300 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-300 transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="blogModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300 p-4">
+        <div class="bg-[#1c1612] border border-[#e5b842]/30 max-w-lg w-full p-8 relative rounded-2xl shadow-2xl space-y-4">
+            <button onclick="closeBlogModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="modalBlogTitle" class="text-2xl font-serif text-[#e5b842]">Blog Title</h3>
+            <div class="w-12 h-[1px] bg-gray-600"></div>
+            <p id="modalBlogContent" class="text-sm text-gray-300 font-light leading-relaxed tracking-wide">Blog content...</p>
+        </div>
+    </div>
+
+    <div id="cartOverlay" class="fixed inset-0 bg-black/60 z-[60] hidden opacity-0 transition-opacity duration-300" onclick="closeCart()"></div>
+    <div id="cartDrawer" class="fixed right-0 top-0 h-full w-full max-w-md bg-[#1c1612] border-l border-[#2d241e] z-[70] shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-6 border-b border-[#2d241e] flex justify-between items-center bg-[#17120f]">
+            <h3 class="font-serif text-xl text-white italic">Keranjang Saya</h3>
+            <button onclick="closeCart()" class="text-gray-400 hover:text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="cart-items" class="flex-1 p-6 overflow-y-auto space-y-6"></div>
+        <div class="p-6 border-t border-[#2d241e] bg-[#17120f] space-y-4">
+            <div class="flex justify-between items-center"><span class="text-gray-400">Total:</span><span id="cart-total" class="text-2xl font-bold text-[#e5b842]">Rp 0</span></div>
+            <button onclick="checkoutAlert()" class="w-full py-4 bg-[#e5b842] hover:bg-white text-[#120e0c] font-bold text-xs tracking-widest uppercase transition rounded">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        // DATABASE SEKARANG MENGGUNAKAN PATH LOCAL ASSETS/
+        const productsDB = [
+            { id: 'ar1', name: 'Spice Route', category: 'aromatic', catLabel: 'AROMATIC', price: 280000, img: 'assets/on sale- lily ethereal.jpeg', gender: 'Men', isBestseller: true, desc: 'An aromatic journey through exotic spices, cardamom, and black pepper with a woody base. Bold and sophisticated.' },
+            { id: 'ar2', name: 'Crystal Essence', category: 'aromatic', catLabel: 'AROMATIC', price: 380000, img: 'assets/for man- bg 1.jpeg', gender: 'Unisex', isBestseller: true, desc: 'Hint: Fresh Mint, Green Apple & White Musk. Aroma super segar yang bersih, seperti hembusan angin pagi hari yang mewah.' },
+            { id: 'ar3', name: 'Midnight Noir', category: 'aromatic', catLabel: 'AROMATIC', price: 420000, img: 'assets/for woman- bg 1.jpeg', gender: 'Unisex', isBestseller: false, desc: 'Hint: Black Truffle, Dark Rose & Oud. Wangi yang sangat misterius, deep, dan mewah.' },
+            { id: 'v1', name: 'Velvet Vanilla', category: 'vanilla', catLabel: 'VANILLA', price: 310000, img: 'assets/for man- bg 1.jpeg', gender: 'Women', isBestseller: true, desc: 'Hint: Madagascan Vanilla, Toasted Marshmallow & Warm Amber.' },
+            { id: 'v2', name: 'Sweet Sugar Gold', category: 'vanilla', catLabel: 'VANILLA', price: 275000, img: 'assets/for woman- bg.jpeg', gender: 'Women', isBestseller: false, desc: 'Hint: Brown Sugar, Coconut Milk & Caramel.' },
+            { id: 'v3', name: 'Sweet Sugar Gold', category: 'vanilla', catLabel: 'VANILLA', price: 275000, img: 'assets/for woman- bg 2.jpeg', gender: 'Women', isBestseller: false, desc: 'Hint: Brown Sugar, Coconut Milk & Caramel.' },
+            { id: 'w1', name: 'AromaCode Blue Diamond', category: 'wood', catLabel: 'WOOD', price: 280000, img: 'assets/for woman- bg 1.jpeg', gender: 'Men', isBestseller: true, desc: 'Hint: Bergamot, Amberwood & Vetiver. Kesegaran citrus top notes berpadu kehangatan notes kayu berkelas.' },
+            { id: 'w2', name: 'Sandalwood Luxury', category: 'wood', catLabel: 'WOOD', price: 350000, img: 'assets/on sale-midnight noir.jpeg', gender: 'Men', isBestseller: false, desc: 'Hint: Pure Mysore Sandalwood, Cinnamon & Leather.' },
+            { id: 'w3', name: 'Oud Majestic', category: 'wood', catLabel: 'WOOD', price: 490000, img: 'assets/for man- bg 2.jpeg', gender: 'Men', isBestseller: true, desc: 'Hint: Cambodian Oud, Patchouli & Incense.' },
+            { id: 'aq1', name: 'Ocean Breeze Pure', category: 'aquatic', catLabel: 'AQUATIC', price: 320000, img: 'assets/for man- bg 2.jpeg', gender: 'Unisex', isBestseller: true, desc: 'Hint: Sea Salt, Marine Accord & Sage.' },
+            { id: 'aq1', name: 'Ocean Breeze Pure', category: 'aquatic', catLabel: 'AQUATIC', price: 320000, img: 'assets/for woman- bg 2.jpeg', gender: 'Unisex', isBestseller: true, desc: 'Hint: Sea Salt, Marine Accord & Sage.' },
+            { id: 'aq1', name: 'Ocean Breeze Pure', category: 'aquatic', catLabel: 'AQUATIC', price: 320000, img: 'assets/on sale-midnight noir.jpeg', gender: 'Unisex', isBestseller: true, desc: 'Hint: Sea Salt, Marine Accord & Sage.' },
+            { id: 'fl1', name: 'Jasmine Infusion Elite', category: 'floral', catLabel: 'FLORAL', price: 360000, img: 'assets/on sale- lily ethereal.jpeg', gender: 'Women', isBestseller: true, desc: 'Hint: Sambac Jasmine, White Lily & Tuberose.' },
+            { id: 'fl2', name: 'Rose Goddess Quartz', category: 'floral', catLabel: 'FLORAL', price: 390000, img: 'assets/for woman- bg 1.jpeg', gender: 'Women', isBestseller: false, desc: 'Hint: Damask Rose, Peony & Pink Pepper.' },
+            { id: 'fr1', name: 'Citrus Burst Joy', category: 'fruit', catLabel: 'FRUITS', price: 240000, img: 'assets/for man- bg 1.jpeg', gender: 'Unisex', isBestseller: true, desc: 'Hint: Sicilian Lemon, Blood Orange & Peach.' }
+        ];
+
+        let cart = [];
+        let currentDetailProduct = null;
+
+        function showLandingPage() {
+            document.getElementById('landing-page-view').classList.remove('hidden');
+            document.getElementById('category-page-view').classList.add('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function navigateToCategoryPage(catKey) {
+            document.getElementById('landing-page-view').classList.add('hidden');
+            document.getElementById('category-page-view').classList.remove('hidden');
+            backToGrid();
+            renderSidebar(catKey);
+            renderGrid(catKey);
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function renderSidebar(activeKey) {
+            const container = document.getElementById('sidebar-buttons-container');
+            const cats = ['wood', 'fruit', 'vanilla', 'aquatic', 'aromatic', 'floral'];
+            container.innerHTML = '';
+            cats.forEach(c => {
+                const btn = document.createElement('button');
+                btn.className = `w-full py-3.5 px-6 text-xs tracking-widest uppercase text-left rounded-xl transition duration-300 ${c === activeKey ? 'active-sidebar font-bold shadow-lg shadow-[#e5b842]/20' : 'bg-[#1c1612] text-gray-400 hover:bg-[#2d241e]'}`;
+                btn.innerText = c;
+                btn.onclick = () => navigateToCategoryPage(c);
+                container.appendChild(btn);
+            });
+        }
+
+        function renderGrid(catKey) {
+            const grid = document.getElementById('category-products-grid');
+            const products = productsDB.filter(p => p.category === catKey);
+            document.getElementById('product-count-text').innerText = `${products.length} produk ditemukan`;
+            grid.innerHTML = '';
+            
+            if(products.length === 0) {
+                grid.innerHTML = `<p class="text-sm text-gray-500 italic py-6">Produk segera hadir!</p>`;
+                return;
+            }
+
+            products.forEach(p => {
+                grid.innerHTML += `
+                    <div onclick="showProductDetail('${p.id}')" class="bg-[#1c1612] overflow-hidden group cursor-pointer border border-[#2d241e] hover:border-[#3a3028] transition rounded-2xl">
+                        <div class="bg-white p-8 relative h-64 flex items-center justify-center">
+                            ${p.isBestseller ? `<span class="absolute top-4 left-4 bg-[#e5b842] text-[#120e0c] text-[9px] font-bold tracking-widest px-2.5 py-1 rounded-sm">BESTSELLER</span>` : ''}
+                            <img src="${p.img}" class="h-44 object-contain group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6 text-center space-y-1">
+                            <p class="text-[10px] tracking-widest text-gray-500 font-bold uppercase">${p.catLabel}</p>
+                            <h4 class="text-base font-serif text-white">${p.name}</h4>
+                            <p class="text-sm font-bold text-[#e5b842] pt-2">Rp ${p.price.toLocaleString('id-ID')}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function showProductDetail(id) {
+            const p = productsDB.find(item => item.id === id);
+            if (!p) return;
+            currentDetailProduct = p;
+            
+            document.getElementById('product-grid-subview').classList.add('hidden');
+            document.getElementById('product-detail-subview').classList.remove('hidden');
+            
+            document.getElementById('detail-image').src = p.img;
+            document.getElementById('detail-name').innerText = p.name;
+            document.getElementById('detail-price').innerText = `Rp ${p.price.toLocaleString('id-ID')}`;
+            document.getElementById('detail-category-tag').innerText = p.catLabel;
+            document.getElementById('detail-gender').innerText = p.gender;
+            document.getElementById('detail-description').innerText = p.desc;
+            document.getElementById('detail-bestseller-tag').style.display = p.isBestseller ? 'flex' : 'none';
+            
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function showDirectProductDetail(id) {
+            const p = productsDB.find(item => item.id === id);
+            if(p) {
+                document.getElementById('landing-page-view').classList.add('hidden');
+                document.getElementById('category-page-view').classList.remove('hidden');
+                renderSidebar(p.category);
+                showProductDetail(id);
+            }
+        }
+
+        function backToGrid() {
+            document.getElementById('product-grid-subview').classList.remove('hidden');
+            document.getElementById('product-detail-subview').classList.add('hidden');
+        }
+
+        function addCurrentDetailToCart() {
+            if (currentDetailProduct) {
+                addToCart(currentDetailProduct);
+                openCart();
+            }
+        }
+
+        function addToCart(p) {
+            const existing = cart.find(item => item.id === p.id);
+            if (existing) existing.qty++;
+            else cart.push({...p, qty: 1});
+            updateCart();
+        }
+
+        function updateCart() {
+            const badge = document.getElementById('cart-badge');
+            const list = document.getElementById('cart-items');
+            const total = document.getElementById('cart-total');
+            const count = cart.reduce((s, i) => s + i.qty, 0);
+            
+            badge.innerText = count;
+            badge.classList.toggle('hidden', count === 0);
+            
+            list.innerHTML = cart.length ? '' : '<p class="text-center text-gray-600 py-10 italic">Keranjang kosong</p>';
+            let totalPrice = 0;
+            
+            cart.forEach(item => {
+                totalPrice += (item.price * item.qty);
+                list.innerHTML += `
+                    <div class="flex items-center gap-4 bg-[#17120f] p-3 rounded-xl border border-[#2d241e]">
+                        <img src="${item.img}" class="w-16 h-16 object-contain bg-white rounded p-1">
+                        <div class="flex-1">
+                            <h4 class="text-xs font-bold text-white">${item.name}</h4>
+                            <p class="text-[#e5b842] text-[10px] font-bold">Rp ${item.price.toLocaleString('id-ID')}</p>
+                            <div class="flex items-center gap-3 mt-2">
+                                <button onclick="changeQty('${item.id}', -1)" class="text-gray-500 hover:text-white font-bold">-</button>
+                                <span class="text-xs text-white">${item.qty}</span>
+                                <button onclick="changeQty('${item.id}', 1)" class="text-gray-500 hover:text-white font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            total.innerText = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+                updateCart();
+            }
+        }
+
+        function openCart() {
+            document.getElementById('cartOverlay').classList.remove('hidden');
+            document.getElementById('cartDrawer').classList.remove('translate-x-full');
+            setTimeout(() => document.getElementById('cartOverlay').classList.remove('opacity-0'), 10);
+        }
+
+        function closeCart() {
+            document.getElementById('cartOverlay').classList.add('opacity-0');
+            document.getElementById('cartDrawer').classList.add('translate-x-full');
+            setTimeout(() => document.getElementById('cartOverlay').classList.add('hidden'), 300);
+        }
+
+        function checkoutAlert() {
+            if (!cart.length) return alert("Keranjang kosong!");
+            alert("Terima kasih! Pesanan AromaCode Anda sedang diproses.");
+            cart = [];
+            updateCart();
+            closeCart();
+        }
+
+        function openBlogModal(title, content) {
+            document.getElementById('modalBlogTitle').innerText = title;
+            document.getElementById('modalBlogContent').innerText = content;
+            const m = document.getElementById('blogModal');
+            m.classList.remove('hidden');
+            setTimeout(() => m.classList.remove('opacity-0'), 10);
+        }
+        function closeBlogModal() {
+            const m = document.getElementById('blogModal');
+            m.classList.add('opacity-0');
+            setTimeout(() => m.classList.add('hidden'), 300);
+        }
+    </script>
+</body>
+</html>
